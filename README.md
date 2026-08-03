@@ -41,9 +41,9 @@ Paquet now (par constructeur, hors groupe)
 
 | Constructeur | Outil | Paquet outil |
 |---|---|---|
-| HP | HPCMSL (HP Client Management Script Library) | `tis-hpcmsl` |
-| Dell | Dell Command Update CLI (`dcu-cli.exe`) | `tis-dell-command-update-uwp` (dépôt TIS) |
-| Lenovo | LSUClient (module PowerShell open-source) | `tis-lsuclient-lenovo` |
+| HP | HPCMSL (HP Client Management Script Library) | `hpcmsl` |
+| Dell | Dell Command Update CLI (`dcu-cli.exe`) | `dell-command-update-uwp` (dépôt TIS) |
+| Lenovo | LSUClient (module PowerShell open-source) | `lsuclient-lenovo` |
 
 ---
 
@@ -53,9 +53,9 @@ Paquet now (par constructeur, hors groupe)
 
 | Paquet groupe | Contenu |
 |---|---|
-| `Déploiement Pilotes HP` | `tis-hpcmsl` + `tis-driver-update-scheduled-hp` + `tis-audit-driver-update` |
-| `Déploiement Pilotes Dell` | `tis-dell-command-update-uwp` + `tis-driver-update-scheduled-dell` + `tis-audit-driver-update` |
-| `Déploiement Pilotes Lenovo` | `tis-lsuclient-lenovo` + `tis-driver-update-scheduled-lenovo` + `tis-audit-driver-update` |
+| `Déploiement Pilotes HP` | `hpcmsl` + `driver-update-scheduled-hp` + `audit-driver-update` |
+| `Déploiement Pilotes Dell` | `dell-command-update-uwp` + `driver-update-scheduled-dell` + `audit-driver-update` |
+| `Déploiement Pilotes Lenovo` | `lsuclient-lenovo` + `driver-update-scheduled-lenovo` + `audit-driver-update` |
 
 ### Paquets now (mise en service)
 
@@ -63,9 +63,9 @@ Déclenchés **manuellement** depuis la console WAPT lors de la mise en service 
 
 | Paquet | Catégories installées |
 |---|---|
-| `tis-driver-update-now-hp` | Drivers + BIOS + Firmware + Dock |
-| `tis-driver-update-now-dell` | Drivers + BIOS |
-| `tis-driver-update-now-lenovo` | Drivers + BIOS (via LSUClient, filtre `Unattended`) |
+| `driver-update-now-hp` | Drivers + BIOS + Firmware + Dock |
+| `driver-update-now-dell` | Drivers + BIOS |
+| `driver-update-now-lenovo` | Drivers + BIOS (via LSUClient, filtre `Unattended`) |
 
 ### Paquets scheduled (maintenance)
 
@@ -73,13 +73,13 @@ Tâche planifiée **permanente** sur le poste — lundi à 14h, rattrapage au d�
 
 | Paquet | Catégories installées |
 |---|---|
-| `tis-driver-update-scheduled-hp` | Drivers + Dock (sans BIOS ni Firmware) |
-| `tis-driver-update-scheduled-dell` | Drivers (sans BIOS) |
-| `tis-driver-update-scheduled-lenovo` | Drivers (sans BIOS, filtre `Type -ne BIOS`) |
+| `driver-update-scheduled-hp` | Drivers + Dock (sans BIOS ni Firmware) |
+| `driver-update-scheduled-dell` | Drivers (sans BIOS) |
+| `driver-update-scheduled-lenovo` | Drivers (sans BIOS, filtre `Type -ne BIOS`) |
 
 ### Paquet audit
 
-`tis-audit-driver-update` — commun aux 3 constructeurs.
+`audit-driver-update` — commun aux 3 constructeurs.
 
 Lit `HKLM:\SOFTWARE\WAPT\DriverUpdate` et remonte dans la console WAPT :
 
@@ -143,17 +143,17 @@ C:\Logs\wapt-drivers\
 
 ### HP
 
-- Télécharger `hp-cmsl-1.8.6.exe` depuis `https://hpia.hpcloud.hp.com/downloads/cmsl/hp-cmsl-1.8.6.exe` et le placer dans le paquet `tis-hpcmsl`
+- Télécharger `hp-cmsl-1.8.6.exe` depuis `https://hpia.hpcloud.hp.com/downloads/cmsl/hp-cmsl-1.8.6.exe` et le placer dans le paquet `hpcmsl`
 - NuGet et PowerShellGet sont mis à jour automatiquement par le paquet
 
 ### Dell
 
-- Utiliser le paquet `tis-dell-command-update-uwp` du dépôt Tranquil IT
-- Le paquet `tis-driver-update-scheduled-dell` et `tis-driver-update-now-dell` en dépendent
+- Utiliser le paquet `dell-command-update-uwp` du dépôt Tranquil IT
+- Le paquet `driver-update-scheduled-dell` et `driver-update-now-dell` en dépendent
 
 ### Lenovo
 
-- LSUClient s'installe depuis PowerShell Gallery — accès internet requis à l'installation du paquet `tis-lsuclient-lenovo`
+- LSUClient s'installe depuis PowerShell Gallery — accès internet requis à l'installation du paquet `lsuclient-lenovo`
 
 ---
 
