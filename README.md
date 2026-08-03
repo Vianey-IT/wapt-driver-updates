@@ -190,37 +190,6 @@ La tâche planifiée tourne chaque lundi à 14h. Si le poste était éteint ce j
 
 ---
 
-## Structure du dépôt
-
-```
-wapt-driver-updates/
-├── README.md
-├── hp/
-│   ├── setup_now.py
-│   ├── setup_scheduled.py
-│   ├── setup_hpcmsl.py
-│   ├── create_task_hp_now.ps1
-│   ├── create_task_hp.ps1
-│   ├── run_driver_updates_hp_now.ps1
-│   └── run_driver_updates_hp.ps1
-├── dell/
-│   ├── setup_now.py
-│   ├── setup_scheduled.py
-│   ├── create_task_dell.ps1
-│   └── run_driver_updates_dell.ps1
-├── lenovo/
-│   ├── setup_now.py
-│   ├── setup_scheduled.py
-│   ├── create_task_lenovo_now.ps1
-│   ├── create_task_lenovo.ps1
-│   ├── run_driver_updates_lenovo_now.ps1
-│   └── run_driver_updates_lenovo.ps1
-└── audit/
-    └── setup_audit.py
-```
-
----
-
 ## Contributions
 
 Les retours et améliorations sont les bienvenus — ouvrir une issue ou une pull request.
