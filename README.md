@@ -206,6 +206,7 @@ wapt-driver-updates/
 ├── dell/
 │   ├── setup_now.py
 │   ├── setup_scheduled.py
+│   ├── create_task_dell.ps1
 │   └── run_driver_updates_dell.ps1
 ├── lenovo/
 │   ├── setup_now.py
